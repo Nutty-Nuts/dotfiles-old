@@ -1,0 +1,18 @@
+(defwindow calendar-widget
+  :windowtype "normal"
+  :stacking "fg"
+  :wm-ignore true
+  :geometry (geometry 
+              :x "78%"
+              :y "0%"
+              :height "10%"
+              :width "20%")
+  (box   :class "calendar" :orientation "h"
+    (eventbox
+              :onhover "~/.local/bin/calendar.sh --cancel-fade"
+              :onhoverlost "~/.local/bin/calendar.sh --resume-fade"
+    (calendar
+              :show-details true
+              :show-heading true
+              :show-day-names true)))
+  )

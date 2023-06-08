@@ -1,0 +1,9 @@
+window {
+  width: 300px;
+  height: 250px;
+}
+
+inputbar {
+  children: [prompt];
+  background-image: linear-gradient(#f5c2e7, #A6AAF1);
+}

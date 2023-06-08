@@ -1,0 +1,140 @@
+{
+  "layer": "top",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": [
+    "keyboard-state",
+    "wlr/workspaces"
+    // "hyprland/submap",
+    // "clock",
+  ],
+  "modules-center": ["custom/screenshot", "custom/window", "custom/picker"],
+  "modules-right": [
+    // "idle_inhibitor",
+    // "cpu",
+    // "temperature",
+    "tray",
+    "network",
+    "memory",
+    "pulseaudio",
+    "clock",
+    "custom/power"
+  ],
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{name}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip": false,
+    "on-click": "~/.local/bin/calendar.sh --toggle"
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{:03} "
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+  "network": {
+    "format": " ",
+    "format-wifi": " ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{essid} {signalStrength}%",
+    // "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": " ",
+    "on-click": "sleep 0.1 && ~/.local/bin/wifi_menu.sh"
+  },
+  "pulseaudio": {
+    "format": "{volume:03} {icon}  {format_source}",
+    "format-bluetooth": "{volume} {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume:03} ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click-right": "pavucontrol",
+    "on-click": "~/.local/bin/audio.sh --toggle",
+    "tooltip": false
+  },
+  "custom/media": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+  },
+  "custom/window": {
+    "exec": "~/.local/bin/active_window_title.sh",
+    "tooltip": false,
+    "interval": 1
+  },
+  "custom/cava-internal": {
+    "exec": "~/.config/waybar/cava.sh",
+    "tooltip": false
+  },
+  "custom/power": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "󰍃"
+    },
+    "escape": true,
+    "interval": "once",
+    "on-click": "sleep 0.1 && ~/.local/bin/power_menu.sh"
+  },
+  "custom/screenshot": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": " "
+    },
+    "escape": true,
+    "on-click": "sleep 0.1 && ~/.local/bin/screenshot_menu.sh"
+  },
+  "custom/picker": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ""
+    },
+    "escape": true,
+    "on-click": "sleep 0.1 && ~/.local/bin/color_picker.sh --hex",
+    "on-click-right": "sleep 0.1 && ~/.local/bin/color_picker.sh --rgb"
+  }
+}

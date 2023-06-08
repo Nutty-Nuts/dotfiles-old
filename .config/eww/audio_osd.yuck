@@ -1,0 +1,53 @@
+(defwidget volume-output-slider []
+  (box :orientation "h" :halign "left" :class "audio-osd"
+    (metric   :label "󰕾 ${volume-output}"
+              :value volume-output
+              :onchange "pamixer --set-volume {}"))
+ )
+
+(defwidget volume-input-slider []
+  (box :orientation "h" :halign "left" :class "audio-osd"
+    (metric   :label " ${volume-input}"
+              :value volume-input
+              :onchange "pamixer --default-source --set-volume {}"))
+ )
+
+(defpoll volume-output :interval "1ms"
+  "~/.local/bin/audio_volume.sh --get-pad")
+
+(defpoll volume-input :interval "1ms"
+  "~/.local/bin/input_volume.sh --get-pad")
+
+(defwidget metric [label value onchange]
+  (box  :orientation "h"
+        :class "metric"
+        :space-evenly false
+    (box :class "label" label)
+    (scale  :min 1
+            :max 101
+            :active {onchange != ""}
+            :value value
+            :onchange onchange)))
+
+(defwindow volume-output-widget 
+  :windowtype "normal"
+  :stacking "overlay"
+  :wm-ignore true
+  :geometry (geometry 
+              :x "43%"
+              :y "85%"
+              :height "7%"
+              :width "14%")
+  (volume-output-slider))
+
+(defwindow volume-input-widget 
+  :windowtype "normal"
+  :stacking "overlay"
+  :wm-ignore true
+  :geometry (geometry 
+              :x "43%"
+              :y "85%"
+              :height "7%"
+              :width "14%")
+  (volume-input-slider))
+

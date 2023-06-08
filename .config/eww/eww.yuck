@@ -1,0 +1,4 @@
+(include "calendar.yuck")
+(include "audio_osd.yuck")
+(include "audio_panel.yuck")
+(include "caps.yuck")

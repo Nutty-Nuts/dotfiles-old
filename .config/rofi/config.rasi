@@ -1,0 +1,85 @@
+configuration{
+    modi: "run,drun,window,filebrowser";
+    // icon-theme: "Colloid";
+    show-icons: true;
+    terminal: "kitty";
+    transparency: "real";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-Network: " 󰤨  Network";
+    // sidebar-mode: true;
+    font: "JetBrainsMono Nerd Font, SemiBold 13";
+}
+
+* {
+  separatorcolor: rgba(0,0,0,0); 
+
+  normal-background: #fff;
+  alternate-normal-background: #fff;
+
+  selected-normal-background: rgba(150, 150, 150, 1);
+  selected-normal-foreground: #fff;
+}
+
+window {
+  width: 400px;
+  height: 530px;
+
+  padding: 3px;
+
+  border-radius: 20px;
+  background-color: rgba(240, 240, 240, 1);
+  border: none;
+}
+
+mainbox {
+  padding: 10px 10px;
+  childre: [inputbar, listview];
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-image: linear-gradient(rgba(249, 226, 175, 1), rgba(245, 194, 231, 1));  
+  border-radius: 8px;
+
+  padding: 16px;
+  margin: 0px 0px 16px 0px;
+}
+
+prompt {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+entry {
+  padding: 4px 8px;
+  color: #fff;
+  placeholder: "Search Applications";
+}
+
+listview {
+  children: [element];
+  scrollbar: false;
+}
+
+element {
+  padding: 8px;
+  margin: 0px 0px 4px 0px;
+  border-radius: 8px;
+}
+
+element-text {
+  vertical-align: 0.50;
+}
+
+element-icon {
+  size: 48px;
+}
+

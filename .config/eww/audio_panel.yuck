@@ -1,0 +1,45 @@
+(defwidget panel-volume-output-slider []
+  (box :orientation "h" :halign "left" :class "audio-panel"
+    (audio-panel-slider   :label "󰕾 ${volume-output}"
+              :value volume-output
+              :onchange "pamixer --set-volume {}"))
+ )
+
+(defwidget panel-volume-input-slider []
+  (box :orientation "h" :halign "left" :class "audio-panel"
+    (audio-panel-slider   :label " ${volume-input}"
+              :value volume-input
+              :onchange "pamixer --default-source --set-volume {}"))
+ )
+
+(defwidget audio-panel-slider [label value onchange]
+  (box  :orientation "h"
+        :class "audio-panel-slider"
+        :space-evenly false
+    (box :class "label" label)
+    (scale  :min 1
+            :max 101
+            :active {onchange != ""}
+            :value value
+            :onchange onchange)))
+
+(defwidget audio-panel []
+  (eventbox
+            :onhover "~/.local/bin/audio.sh --cancel-fade"
+            :onhoverlost "~/.local/bin/audio.sh --resume-fade"
+  (box :orientation "v" :class "audio-panel-box" :space-evenly true
+    (panel-volume-output-slider)
+    (panel-volume-input-slider)
+    ))
+  )
+
+(defwindow audio-panel-widget
+  :windowtype "normal"
+  :stacking "fg"
+  :wm-ignore true
+  :geometry (geometry 
+              :x "80%"
+              :y "0%"
+              :height "10%"
+              :width "17%")
+  (audio-panel))
