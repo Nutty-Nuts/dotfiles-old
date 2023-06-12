@@ -3,7 +3,6 @@
   "height": 30,
   "spacing": 4,
   "modules-left": [
-    "keyboard-state",
     "wlr/workspaces"
     // "hyprland/submap",
     // "clock",

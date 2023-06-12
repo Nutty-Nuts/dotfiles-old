@@ -23,8 +23,8 @@
         :class "metric"
         :space-evenly false
     (box :class "label" label)
-    (scale  :min 1
-            :max 101
+    (scale  :min 0
+            :max 100
             :active {onchange != ""}
             :value value
             :onchange onchange)))

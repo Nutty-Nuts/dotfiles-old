@@ -18,8 +18,8 @@ configuration{
 * {
   separatorcolor: rgba(0,0,0,0); 
 
-  normal-background: #fff;
-  alternate-normal-background: #fff;
+  normal-background: rgba(255, 255, 255, 0);
+  alternate-normal-background: rgba(255, 255, 255, 0);
 
   selected-normal-background: rgba(150, 150, 150, 1);
   selected-normal-foreground: #fff;
@@ -32,14 +32,16 @@ window {
   padding: 3px;
 
   border-radius: 20px;
-  background-color: rgba(240, 240, 240, 1);
+  background-color: rgba(240, 240, 240, 0);
   border: none;
 }
 
 mainbox {
   padding: 10px 10px;
   childre: [inputbar, listview];
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.90);
+  border-color: rgba(240, 240, 240, 1);
+  border: 4px;
   border-radius: 16px;
 }
 

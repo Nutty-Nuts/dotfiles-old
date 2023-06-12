@@ -15,7 +15,7 @@
   background: rgba(255, 255, 255, 1);
   margin: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 4px;
-  border-radius: 32px;
+  border-radius: 16px;
 }
 
 .metric scale trough highlight,
@@ -29,15 +29,16 @@
   );
   color: #000;
   border-radius: 8px;
+  min-width: 16px;
 }
 
 .metric scale trough,
 .audio-panel-slider scale trough {
   all: unset;
   background-color: rgba(230, 230, 230, 1);
-  border-radius: 8px;
-  // box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
-  min-height: 8px;
+  border-radius: 16px;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
+  min-height: 16px;
   min-width: 135px;
   margin-left: 12px;
   margin-right: 12px;
@@ -46,17 +47,18 @@
 .audio-panel-slider scale trough {
   min-height: 16px;
   min-width: 190px;
+  border-radius: 16px;
   margin: 0px 16px 0px 16px;
 }
 
-.audio-panel-slider scale trough slider {
-  background: #fff;
-  // box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 2px 2px;
-  border: 1px solid rgba(200, 200, 200, 1);
-  min-height: 16px;
-  min-width: 20px;
-  border-radius: 16px;
-}
+// .audio-panel-slider scale trough slider {
+//   background: #fff;
+//   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 2px 2px;
+//   border: 1px solid rgba(200, 200, 200, 1);
+//   min-height: 16px;
+//   min-width: 20px;
+//   border-radius: 16px;
+// }
 
 .audio-panel-slider label {
   color: #000;
@@ -99,6 +101,11 @@ calendar .button {
 }
 
 calendar .highlight {
-  background: rgba(240, 240, 240, 1);
+  // background: rgba(240, 240, 240, 1);
+  background-image: linear-gradient(
+    45deg,
+    rgba(249, 226, 175, 1) 0%,
+    rgba(245, 194, 231, 1) 100%
+  );
   border-radius: 8px;
 }
