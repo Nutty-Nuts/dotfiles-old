@@ -1,6 +1,6 @@
 configuration{
-    modi: "run,drun,window,filebrowser";
-    // icon-theme: "Colloid";
+    modi: "run,drun";
+    icon-theme: "Colloid";
     show-icons: true;
     terminal: "kitty";
     transparency: "real";
@@ -39,7 +39,7 @@ window {
 mainbox {
   padding: 10px 10px;
   childre: [inputbar, listview];
-  background-color: rgba(255, 255, 255, 0.90);
+  background-color: rgba(255, 255, 255, 1);
   border-color: rgba(240, 240, 240, 1);
   border: 4px;
   border-radius: 16px;
